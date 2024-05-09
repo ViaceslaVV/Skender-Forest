@@ -4,6 +4,7 @@ using Random = UnityEngine.Random;
 
 public class Enemy : MonoBehaviour
 {
+    public Animator animator;
     public Transform target;
     public Vector3 size = new Vector3(100, 1, 100);
     
@@ -29,6 +30,8 @@ public class Enemy : MonoBehaviour
         {
             isFollowing = false;
         }
+        
+        animator.SetFloat("speed", navMeshAgent.velocity.magnitude);
     }
 
     void Wander()
